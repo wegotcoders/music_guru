@@ -10,7 +10,7 @@
     <h1>My Amazing First App</h1>
 
     <% if flash[:notice] %>
-      <div class="flash">
+      <div class="answer">
         <%= flash[:notice] %>
       </div>
     <% end %>
@@ -22,7 +22,7 @@
     <div>
       <form action="/tracks" method="POST" enctype="multipart/form-data">
 
-        <h3>Give me a track and I'll guest what it is...</h3>
+        <h3>Give me a track and I'll guess what it is...</h3>
 
         <div class="field">
           <label for="track">Track File</label>
