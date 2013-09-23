@@ -1,0 +1,25 @@
+body {
+  text-align : center;
+  font-family: "Lucida Bright", Georgia, serif;
+}
+
+h1 {
+  font-size: 32pt;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+img {
+
+}
+
+.field {
+  margin: 20px;
+}
+
+div.flash {
+  border: 1px solid red;
+  text-align:center;
+  padding: 20px;
+  width: 100%;
+}
