@@ -13,7 +13,7 @@ get '/' do
 end
 
 post '/tracks' do
-  song = Echonest::Song.new('CJ7TD6W3O4RABVSVP')
+  song = Echonest::Song.new('YOUR-API-KEY')
   fingerprint = `ENMFP_codegen/codegen.Linux-x86_64 #{params[:track][:tempfile].path} 10 20`
   code = JSON.parse(fingerprint).first["code"]
   song_info = song.identify(code)
