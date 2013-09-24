@@ -1,4 +1,4 @@
-## My First Amazing App
+## My First Amazing Music Guru App
 
 We're going to modify this Ruby/Sinatra, HTML and CSS application to get an idea
 of what web development is all about. The aim is for you to publish your very
@@ -22,13 +22,13 @@ to make your app work.
 * Clone your forked repository, the URL is on your new bitbucket page.
 
 ```
-    git clone https://wegotcoders@bitbucket.org/wegotcoders/musicguru.git
+    git clone ssh://git@bitbucket.org/wegotcoders/music-guru.git
 ```
 
 * Change into your new project folder
 
 ```
-    cd musicguru
+    cd music-guru
 ```
 
 * Install bundler
@@ -58,20 +58,20 @@ to make your app work.
 ```
 
 * Make a note of the URL it gives you. Will be something like
-http://cool-bananas-922.herokuapp.com.
+http://cool-bananas-9212.herokuapp.com.
 
 * Using the EchoNest API key from earlier, create a file in the working directory
 called api.key and paste in the contents
 
 ```
-    echo 'YOUR_API_KEY' > api.key
+    echo "YOUR_API_KEY" > api.key
 ```
 
 * Set the Heroku config variable API_KEY so that the application knows your
 EchoNest API key.
 
 ```
-    heroku config:add API_KEY='YOUR_API_KEY'
+    heroku config:add API_KEY="YOUR_API_KEY"
 ```
 
 * We're depending here on some binaries to process the signal form the audio file
@@ -133,6 +133,7 @@ Working in pairs, see if you can figure out how to do the following:
 2. Change the image to something more interesting or relevant to you.
 3. Employ some of the CSS tricks you picked up during the morning's lecture to
 pretty the page up a bit:
+
   * Try out some different fonts
   * Try out some different font sizes
   * Try out some different colours
@@ -142,6 +143,7 @@ pretty the page up a bit:
   would like to click
   * Add some nice background colour or a gradient
   * Improve the appearance of the flash notice
+
 5. Prevent the form from being submitted sent unless the checkbox
 is ticked. In that event, show a flash message to explain why the form was wrong.
 6. Prevent the from from being submitted from being sent unless the user entered
@@ -152,8 +154,10 @@ a track into the upload form.
 modify it, changing the title, image and purpose of the submission form. Prizes
 for the best application that get finished by the end of the day. Look at these
 documentation sources for inspiration:
+
   * http://developer.echonest.com/docs/v4/
   * http://echowrap.com/
+
 9. Invite your friends and family on the web to try your application by posting
 your heroku URL on Twitter/Facebook.
 10. When you have finished, submit a pull request so that I can review your work.
