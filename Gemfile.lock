@@ -1,19 +1,20 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    echonest-ruby-api (0.3.0)
-      httparty
-      multi_json
-    httparty (0.11.0)
-      multi_json (~> 1.0)
-      multi_xml (>= 0.5.2)
+    echowrap (0.1.0)
+      faraday (~> 0.9.0.rc5)
+      multi_json (~> 1.8.0)
+      simple_oauth (~> 0.2)
+    faraday (0.9.0.rc5)
+      multipart-post (~> 1.1)
     multi_json (1.8.0)
-    multi_xml (0.5.5)
+    multipart-post (1.2.0)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
     rack-protection (1.5.0)
       rack
+    simple_oauth (0.2.0)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -24,6 +25,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  echonest-ruby-api
+  echowrap
   rack-flash3
   sinatra
