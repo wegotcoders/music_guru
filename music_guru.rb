@@ -2,7 +2,6 @@ require 'echonest-ruby-api'
 require 'sinatra'
 require 'rack-flash'
 require 'json'
-require 'pry'
 
 enable :sessions
 set :session_secret, 'super secret'
