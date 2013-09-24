@@ -8,12 +8,16 @@ enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
 
+configure do
+  API_KEY = ENV['API_KEY'] || File.read('api.key')
+end
+
 get '/' do
   erb :index
 end
 
 post '/tracks' do
-  song = Echonest::Song.new('YOUR-API-KEY')
+  song = Echonest::Song.new(API_KEY)
   fingerprint = `ENMFP_codegen/codegen.Linux-x86_64 #{params[:track][:tempfile].path} 10 20`
   code = JSON.parse(fingerprint).first["code"]
   song_info = song.identify(code)
@@ -22,9 +26,7 @@ post '/tracks' do
     flash[:notice] = "Er.. you've got me..."
   else
     best_guess = song_info.first
-    artist = best_guess[:artist_name]
-    title = best_guess[:title]
-
+    artist, title = best_guess[:artist_name], best_guess[:title]
     flash[:notice] = "Was your song #{title} by #{artist}?"
   end
 
