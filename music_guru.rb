@@ -11,6 +11,13 @@ configure do
   Echowrap.configure do |config|
     config.api_key = ENV['API_KEY'] || File.read('api.key')
   end
+
+  set :arch, 'Linux-x86_64'
+end
+
+configure :development do
+  # Uncomment the line below if you are using Mac OSX
+  # set :arch, 'Darwin'
 end
 
 get '/' do
@@ -18,10 +25,9 @@ get '/' do
 end
 
 post '/tracks' do
-  fingerprint = `ENMFP_codegen/codegen.Linux-x86_64 #{params[:track][:tempfile].path} 10 20`
+  fingerprint = `ENMFP_codegen/codegen.#{settings.arch} #{params[:track][:tempfile].path} 10 20`
   code = JSON.parse(fingerprint).first["code"]
   song = Echowrap.song_identify(:code => code)
-
   if song.nil?
     flash[:notice] = "Er.. you've got me..."
   else
