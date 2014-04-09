@@ -43,6 +43,18 @@ to make your app work.
    bundle
 ```
 
+* Ensure that you have all the dependencies installed for EchoPrint https://github.com/echonest/echoprint-codegen
+
+```
+  Linux:
+  sudo apt-get install ffmpeg libboost1.49-dev libtag1-dev zlib1g-dev
+```
+
+```
+  Mac OSX:
+  brew install ffmpeg boost taglib
+```
+
 * Sign up for Heroku: https://id.heroku.com/signup
 * Setup Heroku toolbelt: https://toolbelt.heroku.com
 * Login to Heroku by typing:
