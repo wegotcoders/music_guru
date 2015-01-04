@@ -47,7 +47,7 @@ to make your app work.
 
 ```
   Linux:
-  sudo apt-get install ffmpeg libboost1.49-dev libtag1-dev zlib1g-dev
+  sudo apt-get install ffmpeg libboost1.54-dev libtag1-dev zlib1g-dev
 ```
 
 ```
