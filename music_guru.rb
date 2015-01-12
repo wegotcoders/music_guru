@@ -30,11 +30,28 @@ get '/' do
 end
 
 post '/tracks' do
-  songs = Echowrap.song_search(:artist => params[:artist])
 
-  if songs
-    flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"
+    unless params[:artist] == ""
+
+    similar = Echowrap.artist_similar(:name => params[:artist], :results =>3)
+
+
+
+  if similar
+    output = ["Errr #{params[:name]}... I can't quite remember #{params[:artist]}? <br> <ul>"]
+    similar.map {|x|
+      song = Echowrap.artist_songs(:name => x.name, :results => 1)
+      song.map {|y| output <<  "<li> #{y.title} ??... oh no wait that was #{x.name} </li>" }
+      
+    } 
+    output << "Bah, I give up... I can't remember... Sorry!</ul>"  
+
+
+  flash[:notice] = output.join
   end
 
+else
+flash[:notice] = "please enter an artist...or did you? I can't remember"
+end
   redirect '/'
 end

@@ -9,7 +9,11 @@
   <body>
     <h1>The Utterly Forgetful Music Genie</h1>
 
-
+        <% if flash[:notice] %>
+      <div class="answer">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
     <div class="left">
       <img src="images/forgetful.jpg" title="Mr Music Genie" alt="The utterly forgetful genie" />
@@ -26,24 +30,23 @@
         <div>
 
         <div class="field">
+          <label id="name" for="name">And your name?</label>
+          <input type="text" name="name" />
+        <div>
+
+        <div class="field">
           <label for="tc">
             I certify that the music I am searching for is in good taste...
           <label>
-          <input id="checkbox" type="checkbox" name="tc" value="1" />
+          <input id="checkbox" required type="checkbox" name="tc" value="1" />
         </div>
 
         <div>
-          <input type="submit" name="submit" value="Submit" />
+          <input class="button" type="submit" name="submit" value="Submit" />
         </div>
 
       </form>
     </div>
-
-        <% if flash[:notice] %>
-      <div class="answer">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
 
   </body>
 

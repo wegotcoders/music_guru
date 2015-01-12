@@ -44,10 +44,9 @@ background-color: rgb(150, 160, 213);
 
 .answer {
   clear: both;
-  display: inline-block;
   box-shadow: grey 5px 5px 5px 5px;
   border-radius: 20px;
-  width: 300px;
+  width: 600px;
   margin: 0 auto 2em auto;
   position: relative;
   padding:15px;
@@ -73,4 +72,17 @@ background-color: rgb(150, 160, 213);
   border-color:#964E95 transparent;
   display:block;
   width:0;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+.button {
+  width: 200px;
+  border-radius: 50px;
+  box-shadow: grey 2px 2px 2px 2px;
+  font-size: large;
+  font-style: italic;
 }
