@@ -22,7 +22,7 @@ to make your app work.
 * Clone your forked repository, the URL is on your new bitbucket page.
 
 ```
-    git clone ssh://git@bitbucket.org/wegotcoders/music-guru.git
+    git clone git@github.com:wegotcoders/music_guru.git
 ```
 
 * Change into your new project folder
