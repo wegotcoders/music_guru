@@ -1,20 +1,25 @@
 body {
   text-align : center;
   font-family: 'Indie Flower', cursive;
+  background: none repeat scroll 0% 0% #E9F9F7
 }
 
 h1 {
   font-size: 32pt;
   text-align: center;
   text-transform: uppercase;
+  padding-bottom: 100px
 }
 
 img {
-
+  box-shadow: 5px 5px #444444;
 }
 
 .field {
+  position:relative;
+  top: -100px;
   margin: 20px;
+
 }
 
 .answer {
@@ -23,15 +28,14 @@ img {
   position: relative;
   padding:15px;
   color:#000;
-  background:#f3961c; /* default background for browsers without gradient support */
-  /* css3 */
-  /*background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+  background:#f3961c; 
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
   background:-moz-linear-gradient(#f9d835, #f3961c);
   background:-o-linear-gradient(#f9d835, #f3961c);
   background:linear-gradient(#f9d835, #f3961c);
   -webkit-border-radius:10px;
   -moz-border-radius:10px;
-  border-radius:10px;*/
+  border-radius:10px;
 }
 
 .answer:after {
@@ -44,4 +48,14 @@ img {
   border-color:#f3961c transparent;
   display:block;
   width:0;
+}
+
+#image {
+  position:relative;
+  top: -100px;
+  z-index: -1;
+}
+
+.errorDiv {
+  display: none;
 }

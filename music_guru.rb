@@ -30,7 +30,12 @@ get '/' do
 end
 
 post '/tracks' do
+
+  
   songs = Echowrap.song_search(:artist => params[:artist])
+
+
+
 
   if songs
     flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"

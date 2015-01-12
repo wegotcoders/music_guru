@@ -9,40 +9,77 @@
 
   <body>
     <h1>Dan the grumpy genie</h1>
+        <div>
+      <% if flash[:notice] %>
+        <div class="answer">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
 
-    <% if flash[:notice] %>
-      <div class="answer">
-        <%= flash[:notice] %>
+      <div id="image">
+        <img src="https://raw.githubusercontent.com/dansteele/wgc_groundwork/master/public/images/pic.jpg" width="300px" title="Music Guru" alt="The all-knowing Music Guru" />
       </div>
-    <% end %>
-
-    <div>
-      <img src="https://raw.githubusercontent.com/dansteele/wgc_groundwork/master/public/images/pic.jpg" width="300px" title="Music Guru" alt="The all-knowing Music Guru" />
     </div>
-
     <div>
-      <form action="/tracks" method="POST" enctype="multipart/form-data">
+      <form id="submitForm" action="/tracks" method="POST" enctype="multipart/form-data">
 
-        <h3>Give me an Artist name and I'll tell you songs by them...</h3>
+        
+<h3>Give me an Artist name and I'll list songs by them...</h3>
+
 
         <div class="field">
           <label for="artist">Artist</label>
-          <input type="text" name="artist" />
+          <input id="artist" placeholder="Eminem" type="text" name="artist" />
         <div>
 
         <div class="field">
           <label for="tc">
-            I certify that the music I am searching for is in good taste...
+            I certify that the artist I am searching for is in good taste...
           <label>
-          <input type="checkbox" name="tc" value="1" />
+          <input id="checkbox" type="checkbox" name="tc" value="1" />
         </div>
 
         <div>
-          <input type="submit" name="submit" value="Submit" />
+          <input   type="submit" name="submit" value="Submit" />
         </div>
 
       </form>
     </div>
+
+    <div class="errorDiv" id="textErrorDiv">
+      <h3>
+        You need to give me an artist!
+      </h3>
+    </div>
+    <br>
+    <div class="errorDiv" id="boxErrorDiv">
+      <h3>
+        I won't look up any boring artists!
+      </h3>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+    $('#submitForm').submit(function(event) {
+      var artistVal = false
+      if ($('#artist').val() != '') { // Check if value is entered
+          console.log('value: ' + $('#artist').val())
+          $('#textErrorDiv').hide();
+        } else {
+          $('#textErrorDiv').show();
+          event.preventDefault()
+        }
+        console.log('Checkbox value: ' + $('#checkbox').prop('checked'))
+        if ($('#checkbox').prop('checked')  == true) { // Check if artist is good
+          console.log('Checkbox value: ' + $('#checkbox').val())
+          $('#boxErrorDiv').hide();
+        } else {
+          $('#boxErrorDiv').show();
+          event.preventDefault()
+        }
+        }
+    )
+    </script>
 
   </body>
 
