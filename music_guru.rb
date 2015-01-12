@@ -31,15 +31,19 @@ end
 
 post '/tracks' do
 
-  
-  songs = Echowrap.song_search(:artist => params[:artist])
+
+  if params[:tc] != '1' then
+  	flash[:notice] = "Give me a good artist!"
+  else
+
+	  songs = Echowrap.song_search(:artist => params[:artist])
 
 
 
-
-  if songs
-    flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"
-  end
+	  if songs
+	    flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"
+	  end
+	end
 
   redirect '/'
 end

@@ -61,25 +61,25 @@
 
     
     <script>
-    $('#submitForm').submit(function(event) {
-      var artistVal = false
-      if ($('#artist').val() != '') { // Check if value is entered
-          console.log('value: ' + $('#artist').val())
-          $('#textErrorDiv').hide();
-        } else {
-          $('#textErrorDiv').show();
-          event.preventDefault()
-        }
-        console.log('Checkbox value: ' + $('#checkbox').prop('checked'))
-        if ($('#checkbox').prop('checked')  == true) { // Check if artist is good
-          console.log('Checkbox value: ' + $('#checkbox').val())
-          $('#boxErrorDiv').hide();
-        } else {
-          $('#boxErrorDiv').show();
-          event.preventDefault()
-        }
-        }
-    )
+    // $('#submitForm').submit(function(event) {
+    //   var artistVal = false
+    //   if ($('#artist').val() != '') { // Check if value is entered
+    //       console.log('value: ' + $('#artist').val())
+    //       $('#textErrorDiv').hide();
+    //     } else {
+    //       $('#textErrorDiv').show();
+    //       event.preventDefault()
+    //     }
+    //     console.log('Checkbox value: ' + $('#checkbox').prop('checked'))
+    //     if ($('#checkbox').prop('checked')  == true) { // Check if artist is good
+    //       console.log('Checkbox value: ' + $('#checkbox').val())
+    //       $('#boxErrorDiv').hide();
+    //     } else {
+    //       $('#boxErrorDiv').show();
+    //       event.preventDefault()
+    //     }
+    //     }
+    // )
     </script>
 
   </body>
