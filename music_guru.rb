@@ -22,7 +22,7 @@ end
 
 configure :development do
   # Uncomment the line below if you are using Mac OSX
-  # set :arch, 'Darwin'
+  set :arch, 'Darwin'
 end
 
 get '/' do
@@ -30,11 +30,14 @@ get '/' do
 end
 
 post '/tracks' do
-  songs = Echowrap.song_search(:artist => params[:artist])
-
-  if songs
-    flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"
+  if params[:tc] != '1'
+    flash[:notice] = "If your music is not good the guru can't think clearly! Please tick the checkbox!"
+  else
+    songs = Echowrap.song_search(:artist => params[:artist])
+    if songs
+      flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"
+    end
   end
 
-  redirect '/'
+    redirect '/'
 end

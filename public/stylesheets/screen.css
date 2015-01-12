@@ -4,13 +4,13 @@ body {
 }
 
 h1 {
-  font-size: 32pt;
+  font-size: 32spt;
   text-align: center;
   text-transform: uppercase;
 }
 
 img {
-
+  float:left;
 }
 
 .field {
