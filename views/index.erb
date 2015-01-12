@@ -2,42 +2,47 @@
 <html lang="en">
 
   <head>
-    <title>My Amazing First App</title>
+    <title>The Utterly Forgetful Music Genie</title>
     <link href="stylesheets/screen.css" type="text/css" rel="stylesheet" />
   </head>
 
   <body>
-    <h1>My Amazing First App</h1>
+    <h1>The Utterly Forgetful Music Genie</h1>
 
-    <% if flash[:notice] %>
+        <% if flash[:notice] %>
       <div class="answer">
         <%= flash[:notice] %>
       </div>
     <% end %>
 
-    <div>
-      <img src="images/guru.png" title="Music Guru" alt="The all-knowing Music Guru" />
+    <div class="left">
+      <img src="images/forgetful.jpg" title="Mr Music Genie" alt="The utterly forgetful genie" />
     </div>
 
-    <div>
+    <div class="right">
       <form action="/tracks" method="POST" enctype="multipart/form-data">
 
         <h3>Give me an Artist name and I'll tell you songs by them...</h3>
 
         <div class="field">
-          <label for="artist">Artist</label>
+          <label id="artist" for="artist">Artist</label>
           <input type="text" name="artist" />
+        <div>
+
+        <div class="field">
+          <label id="name" for="name">And your name?</label>
+          <input type="text" name="name" />
         <div>
 
         <div class="field">
           <label for="tc">
             I certify that the music I am searching for is in good taste...
           <label>
-          <input type="checkbox" name="tc" value="1" />
+          <input id="checkbox" required type="checkbox" name="tc" value="1" />
         </div>
 
         <div>
-          <input type="submit" name="submit" value="Submit" />
+          <input class="button" type="submit" name="submit" value="Submit" />
         </div>
 
       </form>
