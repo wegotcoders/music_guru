@@ -23,6 +23,12 @@ img {
 
 }
 
+#info {
+  position: fixed;
+  top: 150px;
+  left:80px;
+}
+
 .answer {
   width: 300px;
   margin: 0 auto 2em auto;

@@ -41,7 +41,10 @@ post '/tracks' do
 	  rating = Echowrap.artist_hotttnesss(:name => params[:artist])
 
 	  if rating.name
-	    flash[:notice] = "Hmm... I'd say #{rating.name} was about a #{(rating.hotttnesss*10).round(0)}"
+	    flash[:notice] = "Hmm... I'd say #{rating.name} was about a #{(rating.hotttnesss*10).round(0)}. "
+	    if params[:name].length > 1
+	    	flash[:notice] += "What do you think, #{params[:name]}"
+	    end
 	  else
 	  	flash[:notice] = "Really? Give me someone I've heard of."
 	  end
