@@ -1,8 +1,9 @@
 body {
   text-align : center;
-  font-family: 'Indie Flower', cursive;
-  background: none repeat scroll 0% 0% #E9F9F7
-}
+    font-family: 'Indie Flower', cursive;
+    background-image: -moz-radial-gradient(center , ellipse farthest-corner, #AAAAAA 0%, #111111 100%);
+    color: #FFFFFF
+  }
 
 h1 {
   font-size: 32pt;

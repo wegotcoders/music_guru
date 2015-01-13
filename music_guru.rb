@@ -34,14 +34,16 @@ post '/tracks' do
 
   if params[:tc] != '1' then
   	flash[:notice] = "Give me a good artist!"
+  elsif params[:artist].length <= 1
+  	flash[:notice] = "Give me aan artist to work with!"
   else
 
-	  songs = Echowrap.song_search(:artist => params[:artist])
+	  rating = Echowrap.artist_hotttnesss(:name => params[:artist])
 
-
-
-	  if songs
-	    flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"
+	  if rating.name
+	    flash[:notice] = "Hmm... I'd say #{rating.name} was about a #{(rating.hotttnesss*10).round(0)}"
+	  else
+	  	flash[:notice] = "Really? Give me someone I've heard of."
 	  end
 	end
 
