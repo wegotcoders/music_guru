@@ -30,20 +30,18 @@ get '/' do
   erb :index
 end
 
-get '/sanitycheck' do
-  flash[:notice] = "Something"
-  redirect '/'
-end
-
 post '/tracks' do
   # binding.pry
   if params[:artist] == "" then
     flash[:notice] = "You need to type in the artist(s): I'm not psychic."
   elsif params[:tc] != '1' then
     flash[:notice] = "You need to verify their tastefulness."
+  elsif params[:user_name] == "" then
+    flash[:notice] = "Please enter your name."
   else
     songs = Echowrap.song_search(:artist => params[:artist])
-    flash[:notice] = "They wrote and/or sang: #{songs.map {|s| s.title}.join("<br />") }"
+    flash[:notice] = "#{params[:user_name]}, they wrote and/or sang:
+    #{songs.map {|s| s.title}.join("<br />") }"
   end
 
   redirect '/'
