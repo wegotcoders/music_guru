@@ -2,12 +2,12 @@
 <html lang="en">
 
   <head>
-    <title>Richard's App</title>
+    <title>Musical Artist Origins</title>
     <link href="stylesheets/screen.css" type="text/css" rel="stylesheet" />
   </head>
 
   <body>
-    <h1>Richard's App</h1>
+    <h1>Musical Artist Origins</h1>
 
     <% if flash[:notice] %>
       <div class="answer">
@@ -24,8 +24,8 @@
       <form action="/tracks" method="POST" enctype="multipart/form-data"
       align="right">
 
-        <h3>Give me the name of a musical act and I'll list some of their tracks
-        (and probably include some remixes)...</h3>
+        <h3>Give me the name of a musical act and I'll tell you where they're
+         from.</h3>
 
           <input type="text" name="artist" />
         <div>
@@ -36,7 +36,8 @@
 
         <div class="field">
            <label for="tc">
-           I certify that the music I am searching for is in good taste...
+           I certify that the artist I am searching for comes from somewhere on
+           Earth (extra-terrestrial artists aren't in my database).
            <label>
            <input type="checkbox" name="tc" value="1" />
          </div>

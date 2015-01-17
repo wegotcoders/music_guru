@@ -31,17 +31,18 @@ get '/' do
 end
 
 post '/tracks' do
-  # binding.pry
   if params[:artist] == "" then
     flash[:notice] = "You need to type in the artist(s): I'm not psychic."
   elsif params[:tc] != '1' then
-    flash[:notice] = "You need to verify their tastefulness."
+    flash[:notice] = "You need to verify that the musical act is from Earth."
   elsif params[:user_name] == "" then
     flash[:notice] = "Please enter your name."
   else
-    songs = Echowrap.song_search(:artist => params[:artist])
-    flash[:notice] = "#{params[:user_name]}, they wrote and/or sang:
-    #{songs.map {|s| s.title}.join("<br />") }"
+    result = Echowrap.artist_search(:name => params[:artist],
+      :results => 1,
+      :bucket => ['artist_location'])
+    flash[:notice] = "Hi, #{params[:user_name]}. #{params[:artist]} heils from
+    #{result[0].location.city}, #{result[0].location.country}."
   end
 
   redirect '/'
