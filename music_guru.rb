@@ -3,6 +3,7 @@ require 'sinatra'
 require 'rack-flash'
 require 'json'
 require 'yaml'
+require 'pry'
 
 enable :sessions
 set :session_secret, 'super secret'
@@ -29,11 +30,20 @@ get '/' do
   erb :index
 end
 
-post '/tracks' do
-  songs = Echowrap.song_search(:artist => params[:artist])
+get '/sanitycheck' do
+  flash[:notice] = "Something"
+  redirect '/'
+end
 
-  if songs
-    flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"
+post '/tracks' do
+  # binding.pry
+  if params[:artist] == "" then
+    flash[:notice] = "You need to type in the artist(s): I'm not psychic."
+  elsif params[:tc] != '1' then
+    flash[:notice] = "You need to verify their tastefulness."
+  else
+    songs = Echowrap.song_search(:artist => params[:artist])
+    flash[:notice] = "They wrote and/or sang: #{songs.map {|s| s.title}.join("<br />") }"
   end
 
   redirect '/'

@@ -16,22 +16,30 @@
     <% end %>
 
     <div>
-      <img src="images/guru.png" title="Music Guru" alt="The all-knowing Music Guru" />
+      <img src="http://images5.alphacoders.com/478/478531.jpg" title="Daft Punk"
+      alt="Daft Punk" height="270" width="400"/>
     </div>
 
     <div>
-      <form action="/tracks" method="POST" enctype="multipart/form-data">
+      <form action="/tracks" method="POST" enctype="multipart/form-data"
+      align="right">
 
-        <h3>Give me the name of a musical act and I'll list some of their tracks (and probably include some remixes)...</h3>
+        <h3>Give me the name of a musical act and I'll list some of their tracks
+        (and probably include some remixes)...</h3>
 
-        <div class="field">
-          <label for="artist">Musical Act</label>
           <input type="text" name="artist" />
         <div>
 
         <div>
           <input type="submit" name="submit" value="Submit" />
         </div>
+
+        <div class="field">
+           <label for="tc">
+           I certify that the music I am searching for is in good taste...
+           <label>
+           <input type="checkbox" name="tc" value="1" />
+         </div>
 
       </form>
     </div>
