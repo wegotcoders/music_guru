@@ -3,6 +3,7 @@ require 'sinatra'
 require 'rack-flash'
 require 'json'
 require 'yaml'
+require 'pry'
 
 enable :sessions
 set :session_secret, 'super secret'
@@ -30,10 +31,18 @@ get '/' do
 end
 
 post '/tracks' do
-  songs = Echowrap.song_search(:artist => params[:artist])
-
-  if songs
-    flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />") }"
+  if params[:artist] == "" then
+    flash[:notice] = "You need to type in the artist(s): I'm not psychic."
+  elsif params[:tc] != '1' then
+    flash[:notice] = "You need to verify that the musical act is from Earth."
+  elsif params[:user_name] == "" then
+    flash[:notice] = "Please enter your name."
+  else
+    result = Echowrap.artist_search(:name => params[:artist],
+      :results => 1,
+      :bucket => ['artist_location'])
+    flash[:notice] = "Hi, #{params[:user_name]}. #{params[:artist]} heils from
+    #{result[0].location.city}, #{result[0].location.country}."
   end
 
   redirect '/'
