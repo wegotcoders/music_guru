@@ -19,7 +19,7 @@ img {
   margin: 20px;
 }
 
-.answer {
+.answer {*/
   width: 300px;
   margin: 0 auto 2em auto;
   position: relative;
@@ -35,7 +35,7 @@ img {
   border-radius:10px;*/
 }
 
-.answer:after {
+/*.answer:after {
   content:"";
   position:absolute;
   bottom:-15px;
@@ -45,9 +45,9 @@ img {
   border-color:#f3961c transparent;
   display:block;
   width:0;
-}
+}*/
 
-input[type=submit] {padding:5px 15px; 
+input[type=submit] {padding:5px 15px;
 background: black;
 border:2 #BEA95A;
 cursor:pointer;
