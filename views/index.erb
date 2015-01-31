@@ -2,12 +2,12 @@
 <html lang="en">
 
   <head>
-    <title>My Amazing First App</title>
+    <title>The Wise Hippie</title>
     <link href="stylesheets/screen.css" type="text/css" rel="stylesheet" />
   </head>
 
   <body>
-    <h1>My Amazing First App</h1>
+    <h1>The Wise Hippie</h1>
 
     <% if flash[:notice] %>
       <div class="answer">
@@ -16,23 +16,28 @@
     <% end %>
 
     <div>
-      <img src="images/guru.png" title="Music Guru" alt="The all-knowing Music Guru" />
+      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSXRnH576xgFzaK_pyrbMvwPwd9EJd9B5w2Ux0i-2wWACCvUL06gQ" title="Music Guru" alt="The all-knowing Music Guru" />
     </div>
 
     <div>
       <form action="/tracks" method="POST" enctype="multipart/form-data">
 
-        <h3>Give me an Artist name and I'll tell you songs by them...</h3>
+        <h3>If you give to the Wise Hippie an artist, he can tell you other similar artists so you can hear their songs! Give it a try!</h3>
 
         <div class="field">
-          <label for="artist">Artist</label>
+          <label for="artist">Artist:</label>
           <input type="text" name="artist" />
         <div>
 
         <div class="field">
+          <label for="user_name">Your name:</label>
+          <input type="text" name="user_name" />
+        </div>
+
+        <div class="field">
           <label for="tc">
-            I certify that the music I am searching for is in good taste...
-          <label>
+            I certify that the artist I submit is talented!
+          </label>
           <input type="checkbox" name="tc" value="1" />
         </div>
 
