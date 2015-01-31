@@ -37,15 +37,17 @@ post '/tracks' do
      Please tick the checkbox!"
   elsif params[:artist] == ''
     flash[:notice] = "I can't see anything! Please give me a name!"
+  elsif params[:user_name] == ''
+    flash[:notice] = "Tell us your name please to see the results!"
   else
+    artist = params[:artist]
     similar = Echowrap.artist_similar(:name => params[:artist])
-    #binding.pry
-
+    name = params[:user_name]
     if similar
-      flash[:notice] = "Similar artists are #{similar.map {|s| s.name}.join("<br />")} 
-      <br /> Thanks for trying this app. Tell us your name please!"
+      flash[:notice] = "Similar artists with #{artist.downcase.capitalize} are 
+      <br/> #{similar.map {|s| s.name}.join("<br />")}
+      <br/> Thanks for trying this app #{name.downcase.capitalize}!"
     end
   end
-
     redirect '/'
 end

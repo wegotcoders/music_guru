@@ -22,7 +22,7 @@
     <div>
       <form action="/tracks" method="POST" enctype="multipart/form-data">
 
-        <h3>The wise hippie knows every artist and their songs! Isn't it amazing? Just give him a name of an artist and he will tell you about their songs!</h3>
+        <h3>If you give to the Wise Hippie an artist, he can tell other similar artists so you can hear their songs! Give it a try!</h3>
 
         <div class="field">
           <label for="artist">Artist</label>
@@ -30,8 +30,13 @@
         <div>
 
         <div class="field">
+          <label for="user_name">Your name:</label>
+          <input type="text" name="user_name" />
+        </div>
+
+        <div class="field">
           <label for="tc">
-            I certify that the music I am searching for is in good taste...
+            I certify that the artist I submit is talented!
           </label>
           <input type="checkbox" name="tc" value="1" />
         </div>
