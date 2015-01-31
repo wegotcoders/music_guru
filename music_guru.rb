@@ -31,7 +31,6 @@ get '/' do
 end
 
 post '/tracks' do
-  #binding.pry
   if params[:tc] != '1'
     flash[:notice] = "If the artist is not talented the guru can't think clearly!
      Please tick the checkbox!"
