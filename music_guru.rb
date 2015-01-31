@@ -33,18 +33,19 @@ end
 post '/tracks' do
   #binding.pry
   if params[:tc] != '1'
-    flash[:notice] = "If your music is not good the guru can't think clearly! Please tick the checkbox!"
+    flash[:notice] = "If the artist is not talented the guru can't think clearly!
+     Please tick the checkbox!"
   elsif params[:artist] == ''
     flash[:notice] = "I can't see anything! Please give me a name!"
   else
-    songs = Echowrap.song_search(:artist => params[:artist])
-    #not_songs = Echowrap.song_search(:artist => '')
-    if songs
-      flash[:notice] = "They sang #{songs.map {|s| s.title}.join("<br />")} <br /> Thanks for trying this app. Tell us your name please!"
+    similar = Echowrap.artist_similar(:name => params[:artist])
+    #binding.pry
+
+    if similar
+      flash[:notice] = "Similar artists are #{similar.map {|s| s.name}.join("<br />")} 
+      <br /> Thanks for trying this app. Tell us your name please!"
     end
   end
 
     redirect '/'
 end
-
-#flash[:notice] = "I can't see anything! Please give me a name!"
